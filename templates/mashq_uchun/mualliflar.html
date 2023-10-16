@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar</title>
+</head>
+<body>
+  <h1>Tizimdagi barcha mualliflar ro'yxati</h1>
+  <br>
+  <hr>
+  {%for muallif in mualliflar %}
+  <br>
+  <h1>{{muallif.id}}. {{muallif.ism}} ({{muallif.tugilgan_sana}}): {{muallif.kitoblar_soni}} ta kitobi bor</h1>
+  {% endfor %}
+</body>
+</html>
