@@ -30,6 +30,13 @@ def kitob(request, son):
     return render(request, "mashq_uchun/kitob.html", content)
 
 def talaba(request):
+    if request.method == 'POST':
+        Talaba.objects.create(
+            ism=request.POST.get("ismi"),
+            kurs=request.POST.get("k"),
+            kitob_soni=request.POST.get("k_s")
+        ).save()
+        return redirect("/talabalar/")
     soz = request.GET.get("qidirish_sozi")
     natija = Talaba.objects.all()
     if soz:

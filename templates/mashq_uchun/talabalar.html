@@ -14,9 +14,19 @@
     <button>Qidirish</button>
   </form>
   <br>
-  {%for talaba in talabalar %}
+  <ol>
+    {%for talaba in talabalar %}
+    <li><h1>{{talaba.ism}} ({{talaba.kurs}}) ==> {{talaba.kitob_soni}}  <a href="/talaba_ochir/{{talaba.id}}"><button>O'chirish</button></a></h1></li>
+    {% endfor %}
+  </ol>
+
+
   <br>
-  <h1>{{talaba.id}}. {{talaba.ism}} ({{talaba.kurs}}) ==> {{talaba.kitob_soni}}  <a href="/talaba_ochir/{{talaba.id}}"><button>O'chirish</button></a></h1>
-  {% endfor %}
+  <form method="post">{% csrf_token %}
+    <input type="text" placeholder="Ism yozing" name="ismi">
+    <input type="number" placeholder="Kursini yozing" name="k">
+    <input type="number" placeholder="Kitoblari soni" name="k_s">
+    <button>Qo'shish</button>
+  </form>
 </body>
 </html>
