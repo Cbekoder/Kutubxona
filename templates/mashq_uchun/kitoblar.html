@@ -20,5 +20,25 @@
   <a href="/kitob_ochir/{{kitob.id}}"><button>Delete</button></a>
   <hr>
   {% endfor %}
+  <br>
+  <form method="post">{% csrf_token %}
+      <label>Nomi:</label>
+    <input type="text" placeholder="Kitob nomi" name="nom"><br><br>
+      <label>Sahifalar soni:</label>
+    <input type="number" placeholder="Sahifalar soni" name="s_s"><br><br>
+      <label>Janri:</label>
+    <select name="j">
+      <option value="Badiiy">Badiiy</option>
+      <option value="Ilmiy">Ilmiy</option>
+      <option value="Hujjatli">Hujjatli</option>
+    </select><br><br>
+    <label>Muallifi:</label>
+    <select name="a">
+      {% for muallif in mualliflar %}
+        <option value="{{ muallif.id }}">{{ muallif.ism }}</option>
+      {% endfor %}
+    </select><br><br>
+    <button>Qo'shish</button>
+  </form>
 </body>
 </html>

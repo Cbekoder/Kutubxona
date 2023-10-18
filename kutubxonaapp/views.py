@@ -13,7 +13,8 @@ def kitoblar(request):
     if soz:
         natija = natija.filter(nom__contains = soz) or natija.filter(muallif__ism__contains = soz)
     content={
-        "kitoblar": natija
+        "kitoblar": natija,
+        "mualliflar": Muallif.objects.all()
     }
     return render(request, "mashq_uchun/kitoblar.html", content)
 
@@ -26,6 +27,7 @@ def Alisher_Navoiy_kitoblari(request):
 def kitob(request, son):
     content = {
         "kitob": Kitob.objects.get(id=son)
+
     }
     return render(request, "mashq_uchun/kitob.html", content)
 
@@ -47,6 +49,16 @@ def talaba(request):
     return render(request, "mashq_uchun/talabalar.html", content)
 
 def mualliflar(request):
+    if request.method == 'POST':
+        Muallif.objects.create(
+            ism=request.POST.get("ismi"),
+            jins=request.POST.get("jinsi"),
+            tugilgan_sana=request.POST.get("t_y"),
+            kitoblar_soni=request.POST.get("k_s"),
+            tirik=request.POST.get("t") == "on",
+        ).save()
+        return redirect("/mualliflar/")
+    soz = request.GET.get("qidirish_sozi")
     content = {
         "mualliflar" : Muallif.objects.all()
     }
@@ -55,6 +67,10 @@ def mualliflar(request):
 def talaba_ochir(request, son):
     Talaba.objects.get(id = son).delete()
     return redirect("/talabalar/")
+
+def muallif_ochir(request, son):
+    Muallif.objects.get(id = son).delete()
+    return redirect("/mualliflar/")
 
 def kitob_ochir(request, son):
     Kitob.objects.get(id = son).delete()
