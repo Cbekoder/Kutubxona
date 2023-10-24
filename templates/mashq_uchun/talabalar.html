@@ -16,16 +16,17 @@
   <br>
   <ol>
     {%for talaba in talabalar %}
-    <li><h1>{{talaba.ism}} ({{talaba.kurs}}) ==> {{talaba.kitob_soni}}  <a href="/talaba_ochir/{{talaba.id}}"><button>O'chirish</button></a></h1></li>
+    <li><h1>{{talaba.ism}} ({{talaba.kurs}}) ==> {{talaba.kitob_soni}}  <a href="/talaba_ochir/{{talaba.id}}"><button>O'chirish</button></a><a href="/talaba_edit/{{talaba.id}}"><button>Tahrirlash</button></a></h1></li>
     {% endfor %}
   </ol>
 
 
   <br>
   <form method="post">{% csrf_token %}
-    <input type="text" placeholder="Ism yozing" name="ismi">
-    <input type="number" placeholder="Kursini yozing" name="k">
-    <input type="number" placeholder="Kitoblari soni" name="k_s">
+<!--    <input type="text" placeholder="Ism yozing" name="ismi">-->
+<!--    <input type="number" placeholder="Kursini yozing" name="k">-->
+<!--    <input type="number" placeholder="Kitoblari soni" name="k_s">-->
+    {{ forma.as_p }}
     <button>Qo'shish</button>
   </form>
 </body>

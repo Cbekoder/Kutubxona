@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Kitob update</title>
 </head>
 <body>
-$END$
+    <form method="post">{% csrf_token %}
+        <label>Nom:</label>
+        <input type="text" value ="{{kitob.nom}}" name="nom" disabled><br><br>
+        <label>Janr:</label>
+        <select name="janr">
+            <option value="{{kitob.janr}}">{{kitob.janr}}</option>
+            {% for i in janrlar %}
+                {% if  i != kitob.janr %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br><br>
+        <label>Sahifa soni:</label>
+        <input type="number" value ="{{kitob.sahifa}}" name="sahifa"><br><br>
+        <label>Muallifi:</label>[
+        <select name="muallif">
+            <option value="{{ kitob.muallif.id }}">{{ kitob.muallif.ism }}</option>
+            {% for muallif in mualliflar %}
+            {% if muallif.id != kitob.muallif.id %}
+            <option value="{{ muallif.id }}">{{ muallif.ism }}</option>
+            {% endif %}
+            {% endfor %}
+        </select><br><br>
+        <button>Saqlash</button>
+    </form>
 </body>
 </html>

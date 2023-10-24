@@ -7,7 +7,7 @@ JINS=(
 class Talaba(models.Model):
     ism=models.CharField(max_length=45)
     kurs=models.PositiveSmallIntegerField()
-    kitob_soni=models.PositiveSmallIntegerField()
+    kitob_soni=models.PositiveSmallIntegerField(default=0)
 
     def __str__(self):
         return self.ism
@@ -15,7 +15,7 @@ class Muallif(models.Model):
     ism=models.CharField(max_length=45)
     jins=models.CharField(max_length=7,choices=JINS)
     tugilgan_sana=models.DateField()
-    kitoblar_soni=models.PositiveSmallIntegerField()
+    kitoblar_soni=models.PositiveSmallIntegerField(default=0)
     tirik=models.BooleanField()
 
     def __str__(self):

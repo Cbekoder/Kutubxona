@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Talabani tahrirlash</title>
 </head>
 <body>
-$END$
+    <form method="post">{% csrf_token %}
+        <label>Ismi:</label>
+        <input type="text" value ="{{talaba.ism}}" name="ismi" disabled><br><br>
+        <label>Kursi:</label>
+        <input type="number" value ="{{talaba.kurs}}" name = k><br><br>
+        <label>Kitoblari soni:</label>
+        <input type="number" value ="{{talaba.kitob_soni}}" name="k_s"><br><br>
+        <button>Saqlash</button>
+    </form>
 </body>
 </html>
