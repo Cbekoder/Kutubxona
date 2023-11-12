@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records</title>
+</head>
+<body>
+    <h1>Barcha recordlar ro'yxati</h1>
+    <br>
+      {%for record in records %}
+      <br>
+      <a href="/record/{{record.id}}">{{record.id}}. {{record.talaba}} ({{record.kitob}})</a>
+<!--      <a href="/kitob_ochir/{{kitob.id}}"><button>Delete</button></a><a href="/kitob_edit/{{kitob.id}}"><button>Tahrirlash</button></a>-->
+      <hr>
+      {% endfor %}
+</body>
+</html>

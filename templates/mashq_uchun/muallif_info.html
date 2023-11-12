@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ muallif.ism }} haqida ma'lumot</title>
+</head>
+<body>
+    <h1>{{ muallif.ism }} haqida ma'lumot</h1>
+    <p>Tug'ilgan sana: {{ muallif.tugilgan_sana }}</p>
+    <p>Kitoblar soni: {{ muallif.kitoblar_soni }}</p>
+    <p>Jinsi: {{ muallif.jins }}</p>
+    <p>Tirik: {% if muallif.tirik %} Ha {% else %} Yo'q {% endif %}</p>
+    <a href="/mualliflar/">Orqaga qaytish</a>
+</body>
+</html>

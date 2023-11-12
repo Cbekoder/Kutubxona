@@ -46,7 +46,7 @@ class Record(models.Model):
     qaytarish_sana=models.DateField()
 
     def __str__(self):
-        return self.talaba
+        return self.talaba.ism
 
 
 

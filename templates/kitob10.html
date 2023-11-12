@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+</head>
+<body>
+    <h1>Tizimdagi 10 tadan kam kitoblari bor mualliflarning kitoblari ro'yhati</h1>
+    <br>
+    <hr>
+    <br>
+    {%for kitob in kitoblar %}
+    <br>
+    <h1>{{kitob.id}}. {{kitob.nom}} ({{kitob.muallif}})</h1>
+    <hr>
+    {% endfor %}
+</body>
+</html>

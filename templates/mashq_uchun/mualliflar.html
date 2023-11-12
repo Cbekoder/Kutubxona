@@ -25,7 +25,10 @@
   <hr>
   {%for muallif in mualliflar %}
   <br>
-  <h1>{{muallif.id}}. {{muallif.ism}} ({{muallif.tugilgan_sana}}): {{muallif.kitoblar_soni}} ta kitobi bor <a href="/muallif_ochir/{{muallif.id}}"><button>O'chirish</button></a></h1>
+  <h1>
+    <a href="/muallif_info/{{muallif.id}}">{{ muallif.ism }} ({{ muallif.tugilgan_sana }}): {{ muallif.kitoblar_soni }} ta kitobi bor</a>
+    <a href="/muallif_ochir/{{ muallif.id }}"><button>O'chirish</button></a>
+  </h1>
   {% endfor %}
   <form method="post">{% csrf_token %}
       {{ forma.as_p }}

@@ -19,9 +19,10 @@ from django.urls import path
 from kutubxonaapp.views import *
 
 urlpatterns = [
-    path('boshqaruvchi/', admin.site.urls),
-    path('salom/', salomlashish),
+    path('admin/', admin.site.urls),
     path('', homepage),
+    path('login/', login_view),
+    path('logout/', logout_view),
     path('kitoblar/', kitoblar),
     path('Alisher_Navoiy_kitoblari/', Alisher_Navoiy_kitoblari),
     path('kitob/<int:son>', kitob),
@@ -32,5 +33,10 @@ urlpatterns = [
     path('mualliflar/', mualliflar),
     path('talaba_edit/<int:pl>', talaba_edit),
     path('kitob_edit/<int:pl>', kitob_edit),
+    path('muallif_info/<int:muallif_id>', muallif_info),
+    path('records/', records),
+    path('record/<int:record_id>', records),
+    path('katta_mualliflar/', katta_maulliflar),
+    path('kitob10/', kitob_10_muallif),
 
 ]
